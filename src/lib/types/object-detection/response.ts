@@ -1,5 +1,5 @@
-import { Status } from "@/lib/types/common/status";
-import { ImageItem } from "@/lib/types/common/image-item";
+import { Status } from '@/lib/types/common/status';
+import { ImageItem } from '@/lib/types/common/image-item';
 
 export interface ObjectDetectionBox {
   xmin: number;

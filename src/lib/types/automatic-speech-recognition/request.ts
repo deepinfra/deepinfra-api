@@ -1,8 +1,8 @@
-import { ReadStreamInput } from "@/lib/utils/read-stream";
+import { ReadStreamInput } from '@/lib/utils/read-stream';
 
 export interface AutomaticSpeechRecognitionRequest {
   audio: ReadStreamInput;
-  task?: "transcribe" | "translate";
+  task?: 'transcribe' | 'translate';
   language?: string;
   temperature?: number;
   patience?: number;

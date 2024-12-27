@@ -1,7 +1,7 @@
-import { BaseModel } from "@/lib/models/base/base-model";
-import { IClientConfig } from "@/lib/types/common/client-config";
-import { ImageRequest } from "@/lib/types/common/image-request";
-import { FormDataUtils } from "@/lib/utils/form-data";
+import { BaseModel } from '@/lib/models/base/base-model';
+import { IClientConfig } from '@/lib/types/common/client-config';
+import { ImageRequest } from '@/lib/types/common/image-request';
+import { FormDataUtils } from '@/lib/utils/form-data';
 
 export class ImageBaseModel<
   RequestType extends ImageRequest,
@@ -17,7 +17,7 @@ export class ImageBaseModel<
 
   async generate(body: RequestType): Promise<ResponseType> {
     const formData = await FormDataUtils.prepareFormData<RequestType>(body, [
-      "image",
+      'image',
     ]);
     const response = await this.client.post<ResponseType>(formData, {
       headers: {

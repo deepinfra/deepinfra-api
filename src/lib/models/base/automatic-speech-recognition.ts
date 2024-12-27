@@ -1,8 +1,8 @@
-import { AutomaticSpeechRecognitionRequest } from "@/lib/types/automatic-speech-recognition/request";
-import { BaseModel } from "@/lib/models/base/base-model";
-import { IClientConfig } from "@/lib/types/common/client-config";
-import { AutomaticSpeechRecognitionResponse } from "@/lib/types/automatic-speech-recognition/response";
-import { FormDataUtils } from "@/lib/utils/form-data";
+import { AutomaticSpeechRecognitionRequest } from '@/lib/types/automatic-speech-recognition/request';
+import { BaseModel } from '@/lib/models/base/base-model';
+import { IClientConfig } from '@/lib/types/common/client-config';
+import { AutomaticSpeechRecognitionResponse } from '@/lib/types/automatic-speech-recognition/response';
+import { FormDataUtils } from '@/lib/utils/form-data';
 
 export class AutomaticSpeechRecognition extends BaseModel {
   constructor(
@@ -19,7 +19,7 @@ export class AutomaticSpeechRecognition extends BaseModel {
     const formData =
       await FormDataUtils.prepareFormData<AutomaticSpeechRecognitionRequest>(
         body,
-        ["audio"],
+        ['audio'],
       );
     const response = await this.client.post<AutomaticSpeechRecognitionResponse>(
       formData,
