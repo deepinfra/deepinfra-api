@@ -1,5 +1,5 @@
-import FormData from "form-data";
-import { ReadStreamInput, ReadStreamUtils } from "@/lib/utils/read-stream";
+import FormData from 'form-data';
+import { ReadStreamInput, ReadStreamUtils } from '@/lib/utils/read-stream';
 
 export const FormDataUtils = {
   /**

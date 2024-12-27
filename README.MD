@@ -1,9 +1,9 @@
 # DeepInfra Node API Library
+
 ![npm](https://img.shields.io/npm/v/deepinfra)
 ![npm](https://img.shields.io/npm/dt/deepinfra)<br>
 
-
-This library provides a simple way to interact with the DeepInfra API. 
+This library provides a simple way to interact with the DeepInfra API.
 <br>
 <br>
 Check out our docs [here.](https://deepinfra.github.io/deepinfra-node/)
@@ -23,7 +23,7 @@ leverages a mixture of 8 experts (MoE) within 7b models. Its release was facilit
 implementation remains in the experimental phase.\_
 
 ```typescript
-import {TextGeneration} from "deepinfra";
+import { TextGeneration } from "deepinfra";
 
 const modelName = "mistralai/Mixtral-8x22B-Instruct-v0.1";
 const apiKey = "YOUR_DEEPINFRA_API_KEY";

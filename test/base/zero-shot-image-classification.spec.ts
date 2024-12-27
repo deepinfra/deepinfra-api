@@ -1,7 +1,7 @@
 const postMock = jest
   .fn()
-  .mockResolvedValue({ data: { transcription: "example text" } });
-jest.mock("axios", () => {
+  .mockResolvedValue({ data: { transcription: 'example text' } });
+jest.mock('axios', () => {
   const mockAxiosInstance = {
     post: postMock,
   };
@@ -9,27 +9,27 @@ jest.mock("axios", () => {
     create: jest.fn(() => mockAxiosInstance),
   };
 });
-import { ROOT_URL } from "@/lib/constants/client";
-import { ZeroShotImageClassification } from "@/index";
-import FormData from "form-data";
+import { ROOT_URL } from '@/lib/constants/client';
+import { ZeroShotImageClassification } from '@/index';
+import FormData from 'form-data';
 
-describe("ZeroShotImageClassification", () => {
-  const modelName = "openai/clip-vit-base-patch32";
-  const apiKey = "your-api-key";
+describe('ZeroShotImageClassification', () => {
+  const modelName = 'openai/clip-vit-base-patch32';
+  const apiKey = 'your-api-key';
   let model: ZeroShotImageClassification;
 
   beforeAll(() => {
     model = new ZeroShotImageClassification(modelName, apiKey);
   });
 
-  it("should create a new instance", () => {
+  it('should create a new instance', () => {
     expect(model).toBeInstanceOf(ZeroShotImageClassification);
   });
 
-  it("should send a request to correct URL", async () => {
+  it('should send a request to correct URL', async () => {
     const response = await model.generate({
-      image: "test/assets/image.jpg",
-      candidate_labels: ["dog", "cat"],
+      image: 'test/assets/image.jpg',
+      candidate_labels: ['dog', 'cat'],
     });
 
     expect(response).toBeDefined();
@@ -38,7 +38,7 @@ describe("ZeroShotImageClassification", () => {
       expect.any(FormData),
       expect.objectContaining({
         headers: expect.objectContaining({
-          "content-type": expect.stringMatching(/multipart\/form-data/),
+          'content-type': expect.stringMatching(/multipart\/form-data/),
         }),
       }),
     );

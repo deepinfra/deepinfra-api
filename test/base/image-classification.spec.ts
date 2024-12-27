@@ -1,7 +1,7 @@
 const postMock = jest
   .fn()
-  .mockResolvedValue({ data: { transcription: "example text" } });
-jest.mock("axios", () => {
+  .mockResolvedValue({ data: { transcription: 'example text' } });
+jest.mock('axios', () => {
   const mockAxiosInstance = {
     post: postMock,
   };
@@ -9,26 +9,26 @@ jest.mock("axios", () => {
     create: jest.fn(() => mockAxiosInstance),
   };
 });
-import { ROOT_URL } from "@/lib/constants/client";
-import { ImageClassification } from "@/index";
-import FormData from "form-data";
+import { ROOT_URL } from '@/lib/constants/client';
+import { ImageClassification } from '@/index';
+import FormData from 'form-data';
 
-describe("ImageClassification", () => {
-  const modelName = "google/vit-base-patch16-224";
-  const apiKey = "your-api-key";
+describe('ImageClassification', () => {
+  const modelName = 'google/vit-base-patch16-224';
+  const apiKey = 'your-api-key';
   let model: ImageClassification;
 
   beforeAll(() => {
     model = new ImageClassification(modelName, apiKey);
   });
 
-  it("should create a new instance", () => {
+  it('should create a new instance', () => {
     expect(model).toBeInstanceOf(ImageClassification);
   });
 
-  it("should send a request to correct URL", async () => {
+  it('should send a request to correct URL', async () => {
     const response = await model.generate({
-      image: "test/assets/image.jpg",
+      image: 'test/assets/image.jpg',
     });
 
     expect(response).toBeDefined();
@@ -37,7 +37,7 @@ describe("ImageClassification", () => {
       expect.any(FormData),
       expect.objectContaining({
         headers: expect.objectContaining({
-          "content-type": expect.stringMatching(/multipart\/form-data/),
+          'content-type': expect.stringMatching(/multipart\/form-data/),
         }),
       }),
     );
